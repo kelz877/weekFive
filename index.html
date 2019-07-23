@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Coffee Order App</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <div id="mainTitle"><h1>Coffee Orders</h1></div>
+        <div id="mainBody">
+            <span>View All Orders</span><div id="viewAll"></div>
+            <div>
+            <span>Create New Order</span><div id="createNew"></div>
+            <form id="postData" action="post">
+                <input type="email" id="emailAddress" placeholder="enter customer email">
+                <input type="text" id="coffee" placeholder="enter customer order">
+                <input type="submit" value="SUBMIT">
+            </form>
+            </div>
+            <span>Get Order by Email</span>
+            <form id="getEmail" action="post">
+                <input type="email" id="emailAddress" placeholder="enter customer email">
+                <input type="submit" value="SUBMIT">
+            </form>
+
+            <div id="getOrderEmail"></div>
+            <span>Delete Order by Email</span><div id="deleteOrder"></div>
+        </div>
+
+
+
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <script src="coffeeApp.js" async defer></script>
+    </body>
+</html>

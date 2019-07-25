@@ -5,16 +5,22 @@ h1, h3 {
 
 #mainContainer{
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+
     flex-direction: column;
 }
 
+#logInInfo {
+    display: flex;
+    flex-direction: column;
+}
 
 header {
     align-self: center;
 }
 #addStoreForm {
+    align-self: center;
+}
+#authenticationForm{
     align-self: center;
 }
 #listOfStores{
@@ -26,6 +32,8 @@ header {
     padding: 10px 22px;
     font-size: 1rem;
     transition-duration: .4s;
+    margin-top: .5em;
+    margin-bottom: 1em;
 }
 #submitButton:hover {
     background-color: #4CAF50;
@@ -36,7 +44,7 @@ h3 {
     text-align: center;
 }
 
-#storeTextBox{
+#storeTextBox, #email, #password, #userEmail, #userPassword {
     width: 100%;
     font-size: 14px;
     padding: .5rem;
@@ -48,7 +56,7 @@ h3 {
     padding: .5rem;
 }
 
-#buttonContainer {
+.buttonContainer {
     display: flex;
     flex-direction: column;
 }
@@ -67,6 +75,35 @@ h3 {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+    font-size: 14px;
 }
 
-.newStoreInfo
+
+
+#signUpButton {
+    align-self: center;
+    border-radius: 4px;
+    padding: 10px 22px;
+    font-size: 1rem;
+    transition-duration: .4s;
+    margin-top: .7em;
+
+}
+#signUpButton:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#signInButton {
+    align-self: center;
+    border-radius: 4px;
+    padding: 10px 22px;
+    font-size: 1rem;
+    transition-duration: .4s;
+    margin-top: .7em;
+    margin-bottom: 1em;
+}
+#signInButton:hover {
+    background-color: #4CAF50;
+    color: white;
+}

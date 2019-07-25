@@ -12,24 +12,23 @@
 </head>
 <body>
     <div id="mainContainer">
-        <div id="loginInfo">
         <header><h1>Welcome to the Grocery App</h1>
             <span>This application lets you add grocery stores in the area to a database</span>
         </header>
-        <div>
+        <form id="authenticationForm">
+        <div id="signUpBox">
             <h3>Sign Up</h3>
-            <input type="text" id='email'>
-            <input type="text" id='password'>
-            <input type="submit" value="Sign Up" id="signUpButton">
+            <input type="text" id='email' placeholder="please enter your email">
+            <input type="text" id='password' placeholder="please enter your password">
+            <div class="buttonContainer"><input type="submit" value="Sign Up" id="signUpButton"></div>
         </div>
-        <div>
+        <div id="signInBox">
             <h3>Sign In</h3>
-            <input type="text" id='userEmail'>
-            <input type="text" id='userPassword'>
-            <input type="submit" value="Sign In" id="signInButton">
+            <input type="text" id='userEmail' placeholder="please enter your email">
+            <input type="text" id='userPassword' placeholder="please enter your password">
+            <div class="buttonContainer"><input type="submit" value="Sign In" id="signInButton"></div>
         </div>
-        </div>
-
+        </form>
         <form id="addStoreForm">
             <h3>Add Grocery stores to the App:</h3>
             <div>            
@@ -40,7 +39,7 @@
                 <span>What is the address of the store?</span>
                 <input type="text" placeholder="please enter the address" id="addressTextBox">
             </div>      
-                <div id="buttonContainer"><input type="submit" value="Submit" id="submitButton"></div>  
+                <div class="buttonContainer"><input type="submit" value="Submit" id="submitButton"></div>  
         </form>
         <div id="listOfStores"></div>
     </div>

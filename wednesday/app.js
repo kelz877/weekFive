@@ -141,11 +141,11 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 signUpButton.addEventListener('click', () => {
     handleSignUp()
-    window.alert("You have signed up!")
-})
+    window.alert("You signed up!")})
 
 signInButton.addEventListener('click', () => {
     toggleSignIn()
+    window.alert("You signed in!")
 })
 
 //function refreshStores(){

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <title>FireBase Grocery App</title>
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -32,11 +33,11 @@
         <form id="addStoreForm">
             <h3>Add Grocery stores to the App:</h3>
             <div>            
-                <span>What is the name of the store?</span>            
+                <span class="inputQuestion">What is the name of the store?</span>            
                 <input type="text" placeholder="please enter store name" id="storeTextBox" required>
             </div>
             <div>     
-                <span>What is the address of the store?</span>
+                <span class="inputQuestion">What is the address of the store?</span>
                 <input type="text" placeholder="please enter the address" id="addressTextBox">
             </div>      
                 <div class="buttonContainer"><input type="submit" value="Submit" id="submitButton"></div>  
@@ -70,7 +71,7 @@
 
   var database = firebase.database()
 </script>
-
-<script src="app.js"></script>
+<script src="class.js"></script>
+<script src="app2.js"></script>
 </body>
 </html>

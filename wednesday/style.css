@@ -107,3 +107,42 @@ h3 {
     background-color: #4CAF50;
     color: white;
 }
+
+
+
+#signInButton:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.enterItem {
+    align-self: center;
+}
+
+.deleteItemButton, .addGroceryItem {
+    align-self: center;
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-size: .8rem;
+    transition-duration: .4s;
+    margin-top: .7em;
+}
+
+.groceryItem, .newStoreInfo {
+    color: gray;
+    align-self: center;
+    font-size: 1rem;
+    font-family: 'Roboto Slab', serif;
+
+}
+
+.newStoreDiv{
+    margin-top: 2rem;
+}
+
+.inputQuestion {
+    color: gray;
+    align-self: center;
+    font-size: 1.2rem;
+    font-family: 'Roboto Slab', serif;
+}

@@ -6,6 +6,8 @@ let listOfStores = document.getElementById("listOfStores")
 let signUpButton = document.getElementById("signUpButton")
 let signInButton = document.getElementById("signInButton")
 
+
+//reference to the data base
 let storesRef = database.ref('stores')
 
 let stores = []
@@ -29,16 +31,18 @@ function reloadStores(){
 reloadStores()
 */
 
-
+//take a snspshot of what the stores look like at this particular moment in time... listens for changes using the 'on' method. 'value' listends for changes on teh entire contensts of a path
 storesRef.on('value', (snapshot) => {
     stores = []
 
+    //for loop through each store to make sure it snapshots every store
     snapshot.forEach(store => {
         let groceryStore = store.val() //object
         console.log(groceryStore)
         let newStore = new Store(groceryStore.Name, groceryStore.Address)
         newStore.storeID = store.key //unique key from FireBase database
         newStore.items = !groceryStore.items ? [] : groceryStore.items
+        //adds the data from new store into the stores array
         stores.push(newStore)
 
     })
@@ -53,10 +57,19 @@ function addItem(storeID, obj){
     let itemName = obj.previousElementSibling.value
     //adds the item to the local javascript store array
     store.addItem(new Item(itemName, ""))
-    //console.log(itemName)
-    //sets the value for teh node qith the sotre id as the key to the value of the store object
+    console.log(itemName)
+    //sets the value for teh node with the store id as the key to the value of the store object
     storesRef.child(store.storeID).set(store)
 }
+
+
+
+/*
+function deleteItem(storeId, obj){
+    let store = stores.find(s => s.storeID == storeID)
+}
+
+*/
 
 function displayStores(stores){
     //console.log(stores)
@@ -67,16 +80,17 @@ function displayStores(stores){
         if(store.items){
             groceryItems = store.items.map(item => {
                 console.log(item)
-            return `<p>${item.name}</p>`
+            return `<p>${item.name}</p><button class='deleteGroceryItem' onclick='deleteItem('${item.name}')'>Delete Item</button>`
         }).join('')
         }
         return `<div>
         <span class="newStoreInfo">Store Name: ${store.Name} | Store Address: ${store.Address}</span>
-        <button class="removeButton" onclick='deleteStore("${store.storeID}")'>Remove</button></div>
+        <button class="removeButton" onclick='deleteStore(${store.storeID})'>Remove</button></div>
         <br>
-        <span><input type="text"><button class="addGroceryItem" onclick='addItem("${store.storeID}", this)' />Add Item</button></span>
-        ${groceryItems == null ? '' : groceryItems}
-        `
+        <span><input type="text" placeholder="enter item">
+        <button class="addGroceryItem" onclick='addItem("${store.storeID}", this)' />Add Item</button>
+        </span>
+        ${groceryItems == null ? '' : groceryItems}`
     })
     listOfStores.innerHTML = groceryStores.join('')
 }
@@ -97,3 +111,35 @@ function saveStore(storeName, storeAddress){
         Address: storeAddress
     })
 }
+/*
+
+} */
+
+//make a ref to the items array for the specific store and loop through the array checking if the item name matches what you wantto delete //  loop through this --> stores/storeID/items
+
+
+//THEN DELETE .remove()
+
+function deleteItem(name){
+    let itemToDelete = database.ref('stores/storeID/items/1/name')
+    console.log("whats going on")
+    console.log(itemToDelete)
+    itemToDelete.remove()
+        .then(function(){
+            console.log("remove succeeded.")
+        })
+        .catch(function(error){
+            console.log("Remove failed: " + error.message)
+        });
+
+    }
+
+
+/*
+
+let db = firebase.database();
+let ref = db.ref();
+let survey = db.ref('stores/-LkfnS1iJ6A8QG_ZVHvr/items/2');
+survey.child('toast').remove();
+
+*/

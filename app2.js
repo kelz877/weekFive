@@ -78,16 +78,18 @@ function displayStores(stores){
 
         let groceryItems = []
         if(store.items){
+            console.log(store.items)
             groceryItems = store.items.map(item => {
                 console.log(item)
-            return `<p>${item.name}</p><button class='deleteGroceryItem' onclick='deleteItem('${item.name}')'>Delete Item</button>`
+            return `<span class='groceryItem'>${item.name}
+            <button class='deleteItemButton' onclick='deleteItem("${item.name}", "${store.storeID}")'>Delete Item</button></span>`
         }).join('')
         }
-        return `<div>
+        return `<div class='newStoreDiv'>
         <span class="newStoreInfo">Store Name: ${store.Name} | Store Address: ${store.Address}</span>
-        <button class="removeButton" onclick='deleteStore(${store.storeID})'>Remove</button></div>
+        <button class="removeButton" onclick='deleteStore("${store.storeID}")'>Remove</button></div>
         <br>
-        <span><input type="text" placeholder="enter item">
+        <span class="enterItem"><input class="enterItemBox" type="text" placeholder="enter item">
         <button class="addGroceryItem" onclick='addItem("${store.storeID}", this)' />Add Item</button>
         </span>
         ${groceryItems == null ? '' : groceryItems}`
@@ -120,10 +122,22 @@ function saveStore(storeName, storeAddress){
 
 //THEN DELETE .remove()
 
-function deleteItem(name){
-    let itemToDelete = database.ref('stores/storeID/items/1/name')
-    console.log("whats going on")
-    console.log(itemToDelete)
+
+function deleteItem(name, storeID){
+
+    let newItems = null
+    stores.forEach((store) => {
+        if(store.storeID == storeID){
+            newItems = store.items.filter(function(item){
+                return item.name != name
+            })
+        }
+    })
+    let itemsRef = database.ref(`stores/${storeID}/items`)
+    itemsRef.set(newItems)
+
+}
+/*
     itemToDelete.remove()
         .then(function(){
             console.log("remove succeeded.")
@@ -133,7 +147,7 @@ function deleteItem(name){
         });
 
     }
-
+*/
 
 /*
 
